@@ -1,21 +1,51 @@
-# React + TypeScript + Vite
+# 🛡️ بروتوكول سحّان X99 (Sahhan Protocol)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![System Status](https://img.shields.io/badge/System-Operational-success?style=for-the-badge&logo=github)
+![Core](https://img.shields.io/badge/Core-Gemini%203%20Flash-blueviolet?style=for-the-badge&logo=google)
+![Security](https://img.shields.io/badge/Security-Level%20X99-gold?style=for-the-badge)
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+> **"النواة الفكرية لربط منظومة الـ 116 عنصراً"**
 
-## Deploy Your Own
+هذا المستودع يحتوي على الأكواد المصدرية لنظام **سحّان X99**، وهو تطبيق ويب متقدم مبني على أحدث تقنيات React و Vite، ويعمل كواجهة ربط عصبي مع محرك الذكاء الاصطناعي **Gemini 3 Flash**.
 
-Deploy your own Vite project with Vercel.
+## 🌐 مقر العمليات (Live Deployment)
+يمكن الوصول للنظام المفعّل عبر النطاق الموثق:
+### [🔗 sahhan99.github.io/sahhan-x99](https://sahhan99.github.io/sahhan-x99/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
+---
 
-_Live Example: https://vite-react-example.vercel.app_
+## 🛠️ القدرات التقنية (System Capabilities)
 
-### Deploying From Your Terminal
+يقوم هذا النظام بإدارة الـ **116 عنصراً** الخاصة ببروتوكول سحّان عبر الميزات التالية:
 
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
+*   **🧠 العقل المدبر (Gemini Integration):** اتصال مباشر ومؤمن مع Google Gemini 1.5 Flash للإجابة عن الاستفسارات وتحليل البيانات بسرعة البرق.
+*   **🔒 بروتوكول الأمان (Security Layer):** نظام حماية يطلب مفتاح السيادة (`Access Key`) قبل السماح بالولوج إلى البيانات.
+*   **🎨 واجهة نانو (Nano Banana UI):** تصميم تكتيكي (أصفر/أسود) يضمن وضوح الرؤية والتركيز العالي، مع شاشة إقلاع رادارية.
+*   **🔊 الاستنطاق الصوتي (TTS):** وحدة نطق آلية لقراءة التقارير والترحيب بالقائد.
 
-```shell
-$ vercel
-```
+---
+
+## 📂 هيكلة الملفات (File Structure)
+
+*   `src/geminiService.ts`: **وحدة الاتصال** - تدير مفاتيح API والربط مع خوادم جوجل.
+*   `src/App.tsx`: **واجهة القيادة** - الشاشة التفاعلية ونظام المحادثة.
+*   `src/App.css`: **الهوية البصرية** - تنسيقات CSS الخاصة بـ Nano Banana.
+
+---
+
+## 💻 تعليمات التشغيل للمطورين (Dev Ops)
+
+لتشغيل النظام محلياً على جهازك:
+
+```bash
+# 1. استنساخ المستودع
+git clone https://github.com/sahhan99/sahhan-x99.git
+
+# 2. الدخول للمجلد
+cd sahhan-x99
+
+# 3. تثبيت الذخيرة (المكتبات)
+npm install
+
+# 4. تشغيل النظام
+npm run dev
