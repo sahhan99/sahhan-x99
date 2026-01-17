@@ -5,6 +5,46 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- خطوط السيادة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+
+    <title>بروتوكول سحّان | X99</title>
+
+    <style>
+      body { background-color: #050505; margin: 0; overflow: hidden; font-family: 'Cairo', sans-serif; }
+      #sahhan-preloader {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        z-index: 9999; background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+      }
+      .radar-ring {
+        width: 80px; height: 80px; border: 4px solid rgba(255, 215, 0, 0.1);
+        border-top: 4px solid #FFD700; border-radius: 50%;
+        animation: spin 1s linear infinite; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      }
+      .loading-text { margin-top: 20px; color: #FFD700; font-size: 1.2rem; letter-spacing: 2px; font-family: 'Orbitron', sans-serif; animation: pulse 1.5s infinite; }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="sahhan-preloader">
+        <div class="radar-ring"></div>
+        <div class="loading-text">SAHHAN SYSTEM X99</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html> 
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <!-- استدعاء خطوط السيادة: Cairo للعربية و Orbitron للأرقام -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
