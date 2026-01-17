@@ -7,5 +7,5 @@ export default defineConfig({
   // هام جداً:
   // إذا كان اسم المستودع sahhan99 اتركها كما هي
   // إذا كان المستودع هو sahhan99.github.io مباشرة، اجعلها '/'
-  base: '/sahhan-x99/', 
+  base: '/sahhan99/', 
 })
