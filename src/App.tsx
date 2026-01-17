@@ -1,43 +1,39 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react'
 
 function App() {
-  const [accessCode, setAccessCode] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [accessCode, setAccessCode] = useState('')
+  const [isLogged, setIsLogged] = useState(false)
 
-  const handleLogin = () => {
-    // مفتاح الولوج الخاص بك
+  const verify = () => {
     if (accessCode === '38355561') {
-      setIsAuthenticated(true);
+      setIsLogged(true)
     } else {
-      alert("⚠️ مفتاح السيادة غير صحيح");
+      alert("⚠️ رمز الوصول غير صحيح")
     }
-  };
+  }
 
-  if (!isAuthenticated) {
+  if (!isLogged) {
     return (
-      <div className="login-screen">
-        <h1 className="glitch">SAHHAN SYSTEM X99</h1>
-        <p>نظام السيادة بانتظار مفتاح الولوج...</p>
+      <div style={{ background: '#050505', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', align-items: 'center' }}>
+        <h2 style={{ color: '#FFD700', fontFamily: 'Orbitron' }}>SAHHAN ACCESS CONTROL</h2>
         <input 
           type="password" 
-          value={accessCode}
+          value={accessCode} 
           onChange={(e) => setAccessCode(e.target.value)}
-          placeholder="أدخل الرمز هنا"
-          className="security-input"
-          autoFocus
+          style={{ padding: '10px', background: '#111', border: '1px solid #FFD700', color: '#fff', textAlign: 'center' }}
+          placeholder="إدخال رمز السيادة"
         />
-        <button onClick={handleLogin} className="cyber-btn">تفعيل النواة</button>
+        <button onClick={verify} style={{ marginTop: '10px', background: '#FFD700', color: '#000', padding: '10px 20px', cursor: 'pointer', fontWeight: 'bold' }}>دخول</button>
       </div>
-    );
+    )
   }
 
   return (
-    <div className="main-interface">
-      <h2>🛡️ تم تفعيل بروتوكول سحّان</h2>
-      <p>النواة الفكرية متصلة الآن بالـ 116 عنصراً.</p>
+    <div style={{ color: '#FFD700', padding: '20px' }}>
+      <h1>🛡️ تم تفعيل العهد الجديد</h1>
+      <p>الـ 116 عنصراً جاهزة لاستنطاق Gemini 3 Flash.</p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
