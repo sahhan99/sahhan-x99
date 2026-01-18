@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>سحّان X99 — الواجهة السيادية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      background: #050509;
+      color: #f5f5f5;
+      font-family: system-ui, sans-serif;
+      padding: 20px;
+      direction: rtl;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #0b0b12;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(245, 196, 81, 0.3);
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      color: #f5c451;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      background: #11131a;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .status span {
+      color: #4ade80;
+      font-weight: bold;
+    }
+
+    .chat-box {
+      background: #11131a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 12px;
+      height: 260px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .msg {
+      background: #1a1d27;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 1px solid #2a2d38;
+    }
+
+    .msg.system {
+      border-color: #f5c451;
+      background: #2b2412;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #0f1117;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 16px;
+      background: #f5c451;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+
+    button:hover {
+      background: #ffdd7a;
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>سحّان X99 — الواجهة السيادية</h1>
+
+    <div class="status" id="status-box">
+      الحالة: <span id="status-text">في انتظار الاتصال...</span>
+    </div>
+
+    <div class="chat-box" id="chat-log">
+      <div class="msg system">
+        🐺 نظام سحّان X99 جاهز لاستقبال الأوامر.
+      </div>
+    </div>
+
+    <div class="input-row">
+      <input id="command-input" type="text" placeholder="اكتب أمرك هنا…" />
+      <button id="send-btn">إرسال</button>
+    </div>
+
+    <div class="footer">
+      sahhan-x99 — GitHub Pages Interface
+    </div>
+  </div>
+
+  <script>
+    // عدّل هذا العنوان حسب IP جهازك
+    const CORE_ENDPOINT = "http://192.168.8.16:8080/api/command";
+
+    const chatLog = document.getElementById("chat-log");
+    const input = document.getElementById("command-input");
+    const sendBtn = document.getElementById("send-btn");
+    const statusText = document.getElementById("status-text");
+
+    function addMessage(text, system = false) {
+      const div = document.createElement("div");
+      div.className = "msg" + (system ? " system" : "");
+      div.textContent = text;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    async function sendCommand() {
+      const command = input.value.trim();
+      if (!command) return;
+
+      addMessage("أنت: " + command);
+      input.value = "";
+
+      try {
+        const res = await fetch(CORE_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ command })
+        });
+
+        if (!res.ok) throw new Error("خطأ في الاتصال");
+
+        const data = await res.json();
+        addMessage("النواة: " + data.reply, true);
+
+        statusText.textContent = "متصل بالنواة";
+        statusText.style.color = "#4ade80";
+
+      } catch (err) {
+        addMessage("⚠️ تعذر الاتصال بالنواة", true);
+        statusText.textContent = "غير متصل";
+        statusText.style.color = "#ff4b6b";
+      }
+    }
+
+    sendBtn.onclick = sendCommand;
+    input.onkeydown = (e) => {
+      if (e.key === "Enter") sendCommand();
+    };
+  </script>
+
+</body>
+</html>
